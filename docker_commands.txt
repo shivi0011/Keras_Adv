@@ -1,0 +1,43 @@
+nvidia-docker run --rm --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -p8000:8000 -p8001:8001 -p8002:8002 -v /workspace/tensorrt-inference-server/docs/examples/ensemble_model_repository:/models nvcr.io/nvidia/tensorrt:19.05-py3 trtserver --model-store=/models
+
+
+nvidia-docker run --rm --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -p8000:8000 -p8001:8001 -p8002:8002 -v /workspace/tensorrt-inference-server/docs/examples/ensemble_model_repository:/models nvcr.io/nvidia/tensorrt:19.05-py3 192.168.2.38 --model-store=/models
+
+
+sudo nvidia-docker run -ti nvcr.io/nvidia/tensorrt:19.05-py3
+
+sudo docker pull nvcr.io/nvidia/tensorrt:19.05-py3
+
+sudo docker ps -a
+
+sudo docker stop c0d94ff43db1
+
+sudo nvidia-docker run -ti nvcr.io/nvidia/drr_tensorflow_jptr:19.05-py3
+
+sudo nvidia-docker run --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -ti -p "8888:8888" nvcr.io/nvidia/drr_tensorflow_jptr:19.05-py3
+
+sudo docker image ls
+
+pull a particular image
+sudo docker pull nvcr.io/nvidia/tensorflow:19.05-py3
+
+sudo nvidia-docker run -d -p 9696:5000 --rm -v /home/user3/DL:/home/user3/DL -v digit-jobs:/workspace/jobs nvcr.io/nvidia/digits:19.05-caffe
+sudo docker ps -a
+
+to commit the docker image:
+sudo docker commit dockerID imageName
+sudo docker commit b30f004f1d6a nvcr.io/nvidia/drr_tensorflow_jptr:19.05-py3
+
+
+
+
+
+
+
+
+
+
+
+
+To run TensorRT server -- 1st download tensorrtserver image  --- nvcr.io/nvidia/tensorrtserver  --  19.05-py3 
+sudo nvidia-docker run --rm --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -p 8000:8000 -p 8001:8001 -p 8002:8002 -v /workspace/tensorrt-inference-server/docs/examples/ensemble_model_repository:/models nvcr.io/nvidia/tensorrtserver:19.05-py3 trtserver --model-store=/models
